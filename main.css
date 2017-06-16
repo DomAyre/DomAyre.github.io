@@ -3,10 +3,16 @@ body
     font-family: 'Roboto Slab', serif !important;
 }
 
+img
+{
+    background-size: cover;
+    width: 100%;
+}
+
 .mdl-layout__drawer
 {
     background-color: #616161;
-    border-color: #616161;
+    border-width: 0;
     color: white;
 }
 
@@ -18,4 +24,19 @@ body
 .mdl-navigation__link:hover
 {   
     background-color: #00BCD4 !important;
+}
+
+.green:hover
+{
+    background-color: #4CAF50 !important;
+}
+
+.red:hover
+{
+    background-color: #B40F0F !important;
+}
+
+.yellow:hover
+{
+    background-color: #DCB400 !important;
 }
