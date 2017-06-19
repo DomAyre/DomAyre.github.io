@@ -9,6 +9,33 @@ img
     width: 100%;
 }
 
+.card > *
+{
+    margin: 18px;
+}
+
+.card > img
+{
+    margin: 0px;
+}
+
+.spacer 
+{
+    height: 20px;
+}
+
+.mdl-grid
+{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.social-card
+{
+    padding: 0px;
+    /*height: 140px;*/
+}
+
 .mdl-layout__drawer
 {
     background-color: #616161;

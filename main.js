@@ -16,15 +16,20 @@ for (var i = 0; i < projects.length; i++) { projects[i].addEventListener('click'
 
 function setLayout()
 {
-    if (document.documentElement.clientWidth > 1024)
-    {
-        projectContent.style.marginLeft = "40px";
-        projectContent.style.marginRight = "40px";
+    if (document.documentElement.clientWidth < 800)
+    {        
+        projectContent.style.marginLeft = "16px";
+        projectContent.style.marginRight = "16px";
     }
-    else
+    else if (document.documentElement.clientWidth < 1024)
     {
         projectContent.style.marginLeft = "72px";
         projectContent.style.marginRight = "16px";
+    }
+    else
+    {
+        projectContent.style.marginLeft = "40px";
+        projectContent.style.marginRight = "40px";
     }
 }
 
