@@ -16,6 +16,11 @@ img
     color: white;
 }
 
+.material-icons, .mdl-textfield__input
+{
+    color: #323232;
+}
+
 .mdl-navigation__link
 {
     color: white !important;
