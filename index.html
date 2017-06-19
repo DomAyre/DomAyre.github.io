@@ -13,6 +13,7 @@
     <link href="main.css" rel="stylesheet">
 
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
 
   </head>
 
@@ -22,7 +23,7 @@
 
         <header class="mdl-layout__header mdl-layout__header--transparent">
             <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title">About me</span>
+                <span id="page-title" class="mdl-layout-title">About me</span>
                 <div class="mdl-layout-spacer"></div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
                     <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
@@ -37,27 +38,29 @@
 
         <div class="mdl-layout__drawer">
             <img src="media/profile.jpg">
-            <span class="mdl-layout-title">Dominic Ayre</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="">COMPUTER SCIENCE</a>
-                <a class="mdl-navigation__link green" href="">Study Planner</a>
-                <a class="mdl-navigation__link" href="">Mynd</a>
-                <a class="mdl-navigation__link" href="">BaD Squash</a>
-                <a class="mdl-navigation__link" href="">Rollout</a>
-                <a class="mdl-navigation__link" href="">VRStudio</a>
-                <a class="mdl-navigation__link" href="">DESIGN</a>
-                <a class="mdl-navigation__link red" href="">Bristol Quidditch Club</a>
-                <a class="mdl-navigation__link yellow" href="">Southwest League</a>
-                <a class="mdl-navigation__link" href="">Freelance Logo Design</a>
+            <span id="about-me" class="mdl-layout-title project-link">Dominic Ayre</span>
+            <nav id="drawer" class="mdl-navigation">
+                <!--<a class="mdl-navigation__link">COMPUTER SCIENCE</a>-->
+                <a class="mdl-navigation__link project-link grey">Study Planner</a>
+                <a class="mdl-navigation__link project-link green">Mynd</a>
+                <a class="mdl-navigation__link project-link red">BaD Squash</a>
+                <a class="mdl-navigation__link project-link blue">Rollout</a>
+                <a class="mdl-navigation__link project-link teal">VRStudio</a>
+                <!--<a class="mdl-navigation__link">DESIGN</a>-->
+                <a class="mdl-navigation__link project-link red">Bristol Quidditch Club</a>
+                <a class="mdl-navigation__link project-link yellow">Southwest League</a>
+                <a class="mdl-navigation__link project-link orange">Freelance Logo Design</a>
             </nav>
             
         </div>
 
         <main class="mdl-layout__content">
             <div class="page-content">
-                
-                <link rel="import" href="pages/test.html">
 
+                <div id="project-content" w3-include-html=""></div>
+
+
+                <script src="main.js"></script>
 
             </div>
         </main>

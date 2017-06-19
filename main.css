@@ -21,27 +21,29 @@ img
     color: #323232;
 }
 
-.mdl-navigation__link
+.mdl-navigation__link, #about-me
 {
+    cursor: default;
     color: white !important;
 }
 
-.mdl-navigation__link:hover
+#about-me:hover
 {   
-    background-color: #00BCD4 !important;
+    background-color: #323232 !important;
 }
 
-.green:hover
-{
-    background-color: #4CAF50 !important;
-}
+/*Colours*/
 
-.red:hover
-{
-    background-color: #B40F0F !important;
-}
+.green:hover, .green.active { background-color: #4CAF50 !important; }
 
-.yellow:hover
-{
-    background-color: #DCB400 !important;
-}
+.red:hover, .red.active { background-color: #B40F0F !important; }
+
+.yellow:hover, .yellow.active { background-color: #DCB400 !important; }
+
+.teal:hover, .teal.active { background-color: #009688 !important; } 
+
+.grey:hover, .grey.active { background-color: #607D8B !important; }   
+
+.blue:hover, .blue.active { background-color: #2196F3 !important; }
+
+.orange:hover, .orange.active { background-color: #FF9800 !important; }
