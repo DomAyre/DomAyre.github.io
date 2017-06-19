@@ -11,7 +11,7 @@ img
 
 .card > *
 {
-    margin: 18px;
+    margin: 18px !important;
 }
 
 .card > img
@@ -26,13 +26,13 @@ img
 
 .mdl-grid
 {
-    margin-left: -15px;
-    margin-right: -15px;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
 }
 
 .social-card
 {
-    padding: 0px;
+    padding: 0px !important;
     /*height: 140px;*/
 }
 
