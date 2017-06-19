@@ -6,6 +6,7 @@ var projectContent = document.getElementById("project-content");
 var pageTitle = document.getElementById("page-title");
 var icons = document.getElementsByClassName("material-icons");
 var inputs = document.getElementsByClassName("mdl-textfield__input");
+var drawer = document.getElementsByClassName("mdl-layout__drawer")[0];
 var activeProject;
 
 // Event listeners
@@ -51,4 +52,10 @@ function switchProjects(project)
     // Change colour theme
     for (var i = 0; i < icons.length; i++) { icons[i].style.color = projectColour };
     for (var i = 0; i < inputs.length; i++) { inputs[i].style.color = projectColour };
+
+    // Close the sidebar
+    var obfuscator = document.getElementsByClassName("mdl-layout__obfuscator")[0];
+    obfuscator.classList.remove('is-visible');        
+    drawer.classList.remove('is-visible');    
+    
 }
