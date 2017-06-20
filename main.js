@@ -7,12 +7,14 @@ var pageTitle = document.getElementById("page-title");
 var icons = document.getElementsByClassName("material-icons");
 var inputs = document.getElementsByClassName("mdl-textfield__input");
 var drawer = document.getElementsByClassName("mdl-layout__drawer")[0];
+var projectTypes = document.getElementsByClassName("project-type");
 var activeProject;
 
 // Event listeners
 window.addEventListener('load', setLayout);
 window.addEventListener('resize', setLayout);
 for (var i = 0; i < projects.length; i++) { projects[i].addEventListener('click', switchProjects); }
+for (var i = 0; i < projectTypes.length; i++) { projectTypes[i].addEventListener('click', toggleRegion); }
 
 function setLayout()
 {
@@ -63,4 +65,18 @@ function switchProjects(project)
     obfuscator.classList.remove('is-visible');        
     drawer.classList.remove('is-visible');    
     
+}
+
+function toggleRegion(projectType)
+{    
+    // Get the project details
+    var type = projectType.srcElement.innerText;
+    
+    var region = document.getElementById(type + " PROJECTS");
+
+    var wrapper = document.getElementById(type + " WRAPPER");
+    
+    if (region.clientHeight)  region.style.height = 0;
+    else region.style.height = wrapper.clientHeight + "px";
+
 }

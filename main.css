@@ -54,14 +54,36 @@ img
     color: white !important;
 }
 
-#about-me:hover
+#about-me:hover, .project-type:hover
 {   
     background-color: #323232 !important;
 }
 
+.project-type
+{
+    font-family: Roboto;
+}
+
+.collapsable > div > .project-link
+{
+    padding-left: 50px !important;
+}
+
+.collapsable {
+    -moz-transition: height .5s;
+    -ms-transition: height .5s;
+    -o-transition: height .5s;
+    -webkit-transition: height .5s;
+    transition: height .5s;
+    height: 0;
+    overflow: hidden;
+  }
+
 /*Colours*/
 
 .green:hover, .green.active { background-color: #4CAF50 !important; }
+
+.light-blue:hover, .light-blue.active { background-color: #4FC3F7 !important; }
 
 .red:hover, .red.active { background-color: #B40F0F !important; }
 
