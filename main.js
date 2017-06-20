@@ -70,13 +70,24 @@ function switchProjects(project)
 function toggleRegion(projectType)
 {    
     // Get the project details
-    var type = projectType.srcElement.innerText;
+    var element = projectType.srcElement;
+    if (element.outerHTML.startsWith("<b")) element = projectType.srcElement.parentElement;
+    var type = element.innerText;
     
+    // Get the elements
     var region = document.getElementById(type + " PROJECTS");
-
     var wrapper = document.getElementById(type + " WRAPPER");
     
-    if (region.clientHeight)  region.style.height = 0;
-    else region.style.height = wrapper.clientHeight + "px";
+    // Change the height
+    if (region.clientHeight)  
+    {
+        region.style.height = 0;
+        element.classList.remove("active");
+    }
+    else 
+    {
+        region.style.height = wrapper.clientHeight + "px";
+        element.classList.add("active");
+    }
 
 }

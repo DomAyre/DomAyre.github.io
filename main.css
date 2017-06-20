@@ -54,7 +54,7 @@ img
     color: white !important;
 }
 
-#about-me:hover, .project-type:hover
+#about-me:hover, .project-type:hover, .project-type.active
 {   
     background-color: #323232 !important;
 }
@@ -67,6 +67,7 @@ img
 .collapsable > div > .project-link
 {
     padding-left: 50px !important;
+    background-color: #404040;
 }
 
 .collapsable {
