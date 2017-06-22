@@ -11,10 +11,15 @@ var projectTypes = document.getElementsByClassName("project-type");
 var activeProject;
 
 // Event listeners
-window.addEventListener('load', setLayout);
+window.addEventListener('load', load);
 window.addEventListener('resize', setLayout);
 for (var i = 0; i < projects.length; i++) { projects[i].addEventListener('click', switchProjects); }
 for (var i = 0; i < projectTypes.length; i++) { projectTypes[i].addEventListener('click', toggleRegion); }
+
+function load()
+{
+    setLayout();
+}
 
 function setLayout()
 {

@@ -64,9 +64,22 @@ img
     font-family: Roboto;
 }
 
+.gallery
+{
+    height: 300px;
+    background-image: url("media/study planner.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+.gallery-element
+{
+    height: 100%;
+}
+
 .collapsable > div > .project-link
 {
-    padding-left: 50px !important;
     background-color: #404040;
 }
 
