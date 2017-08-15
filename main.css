@@ -33,7 +33,6 @@ img
 .social-card
 {
     padding: 0px !important;
-    /*height: 140px;*/
 }
 
 .mdl-layout__drawer
@@ -101,8 +100,7 @@ img
 
 .gallery-back, .gallery-forward
 {
-    position: relative;
-    top: -50%;
+    top: -60%;
     margin: 8px;
 }
 

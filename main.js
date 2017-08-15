@@ -9,6 +9,7 @@ var inputs = document.getElementsByClassName("mdl-textfield__input");
 var drawer = document.getElementsByClassName("mdl-layout__drawer")[0];
 var projectTypes = document.getElementsByClassName("project-type");
 var activeProject;
+var galleryRatio = 4/3;
 
 // Event listeners
 window.addEventListener('load', load);
@@ -43,7 +44,7 @@ function setLayout()
     var galleries = document.getElementsByClassName("gallery");
     for (i = 0; i < galleries.length; i++)
     {
-        galleries[i].style.height =  galleries[i].clientWidth*0.6/16*9 + "px";
+        galleries[i].style.height =  galleries[i].clientWidth*0.6/galleryRatio + "px";
         galleries[i].children[1].addEventListener('click', gallery_scroll);
         galleries[i].children[2].addEventListener('click', gallery_scroll);
     }
