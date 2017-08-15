@@ -67,7 +67,7 @@ function switchProjects(project)
     pageTitle.innerHTML = projectName;
 
     // Switch out page content (ASSUMING CONTENT WILL EXIST)
-    projectContent.setAttribute("w3-include-html", "pages/" + projectName + ".html");
+    projectContent.setAttribute("w3-include-html", "pages/" + projectName + "/" + projectName + ".html");
 
     // Change colour theme
     for (var i = 0; i < icons.length; i++) { icons[i].style.color = projectColour };
