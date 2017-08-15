@@ -67,21 +67,74 @@ img
 .gallery
 {
     height: 300px;
-    background-image: url("media/study planner.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
+    overflow: hidden;
+    padding: 0px 0px 4px 0px;
+}
+
+.gallery > *
+{
+    margin: auto;
+}
+
+.gallery-stack
+{
+    pointer-events: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    padding: 2px 0px 16px 0px;
 }
 
 .gallery-element
 {
+    position: relative;
+    display: inline-block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    width: 60%;
     height: 100%;
+    margin: 0px 20%;
+}
+
+.gallery-back, .gallery-forward
+{
+    position: relative;
+    top: -50%;
+    margin: 8px;
+}
+
+.gallery-back > *, .gallery-forward > *
+{
+    pointer-events: none;
+}
+
+.gallery-back
+{
+    float: left;
+}
+
+.gallery-forward
+{
+    float: right;
 }
 
 .collapsable > div > .project-link
 {
     background-color: #404040;
 }
+
+.collapsable {
+    -moz-transition: height .5s;
+    -ms-transition: height .5s;
+    -o-transition: height .5s;
+    -webkit-transition: height .5s;
+    transition: height .5s;
+    height: 0;
+    overflow: hidden;
+  }
 
 .collapsable {
     -moz-transition: height .5s;

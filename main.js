@@ -38,6 +38,15 @@ function setLayout()
         projectContent.style.marginLeft = "40px";
         projectContent.style.marginRight = "40px";
     }
+
+    // Set the gallery elements size
+    var galleries = document.getElementsByClassName("gallery");
+    for (i = 0; i < galleries.length; i++)
+    {
+        galleries[i].style.height =  galleries[i].clientWidth*0.6/16*9 + "px";
+        galleries[i].children[1].addEventListener('click', gallery_scroll);
+        galleries[i].children[2].addEventListener('click', gallery_scroll);
+    }
 }
 
 function switchProjects(project)
@@ -59,7 +68,6 @@ function switchProjects(project)
 
     // Switch out page content (ASSUMING CONTENT WILL EXIST)
     projectContent.setAttribute("w3-include-html", "pages/" + projectName + ".html");
-    w3.includeHTML();
 
     // Change colour theme
     for (var i = 0; i < icons.length; i++) { icons[i].style.color = projectColour };
@@ -68,8 +76,9 @@ function switchProjects(project)
     // Close the sidebar
     var obfuscator = document.getElementsByClassName("mdl-layout__obfuscator")[0];
     obfuscator.classList.remove('is-visible');        
-    drawer.classList.remove('is-visible');    
-    
+    drawer.classList.remove('is-visible');  
+
+    w3.includeHTML(setLayout);
 }
 
 function toggleRegion(projectType)
@@ -95,4 +104,18 @@ function toggleRegion(projectType)
         element.classList.add("active");
     }
 
+}
+
+function gallery_scroll(button)
+{
+    var gallery = button.srcElement.parentElement;
+    var scroll_amount = gallery.clientWidth;
+    if (button.srcElement.classList.contains("gallery-back")) { scroll_amount = -scroll_amount; }
+
+    $(gallery.children[0]).animate
+    (
+        {
+            scrollLeft: gallery.children[0].scrollLeft + scroll_amount
+        }
+    );
 }
