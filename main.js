@@ -22,8 +22,8 @@ function load()
     setLayout();
 }
 
-function setLayout()
-{
+function setLayout(test)
+{    
     if (document.documentElement.clientWidth < 800)
     {        
         projectContent.style.marginLeft = "16px";
@@ -47,6 +47,9 @@ function setLayout()
         galleries[i].style.height =  galleries[i].clientWidth*0.6/galleryRatio + "px";
         galleries[i].children[1].addEventListener('click', gallery_scroll);
         galleries[i].children[2].addEventListener('click', gallery_scroll);
+
+        var index = Math.round(galleries[i].children[0].scrollLeft/galleries[i].clientWidth);
+        galleries[i].children[0].scrollLeft = galleries[i].clientWidth * index;
     }
 }
 
@@ -110,13 +113,15 @@ function toggleRegion(projectType)
 function gallery_scroll(button)
 {
     var gallery = button.srcElement.parentElement;
-    var scroll_amount = gallery.clientWidth;
+    var scroll_amount = 1;
     if (button.srcElement.classList.contains("gallery-back")) { scroll_amount = -scroll_amount; }
+
+    var index = Math.round(gallery.children[0].scrollLeft/gallery.clientWidth);
 
     $(gallery.children[0]).animate
     (
         {
-            scrollLeft: gallery.children[0].scrollLeft + scroll_amount
+            scrollLeft: gallery.clientWidth * (index + scroll_amount)
         }
     );
 }
