@@ -1,7 +1,22 @@
 #project-content > *
 {
-    max-width: 1600px;
+    max-width: 1280px;
     margin: auto;
+}
+
+h6
+{
+    margin-bottom: 20px !important;
+}
+
+#project-content
+{
+    margin-bottom: 50px;
+}
+
+.mdl-layout__content
+{
+    background: #F0F0F0;
 }
 
 body
@@ -13,6 +28,11 @@ img
 {
     background-size: cover;
     width: 100%;
+}
+
+.card
+{
+    background: white;
 }
 
 .card > *
