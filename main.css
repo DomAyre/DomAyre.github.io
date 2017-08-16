@@ -35,19 +35,25 @@ img
     background: white;
 }
 
+.card > img, .card > video
+{
+    margin: 0px !important;
+    width: 100%;
+}
+
 .card > *
 {
     margin: 18px !important;
 }
 
-.card > img
-{
-    margin: 0px !important;
-}
-
 .spacer 
 {
     height: 20px;
+}
+
+.spacer-small
+{
+    height: 6px;
 }
 
 .mdl-grid
