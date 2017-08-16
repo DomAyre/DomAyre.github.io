@@ -1,3 +1,9 @@
+#project-content > *
+{
+    max-width: 1600px;
+    margin: auto;
+}
+
 body
 {
     font-family: 'Roboto Slab', serif !important;
@@ -26,8 +32,12 @@ img
 
 .mdl-grid
 {
-    margin-left: -15px !important;
-    margin-right: -15px !important;
+    padding: 0px;
+}
+
+.mdl-grid > *
+{
+    margin: 12px 12px 0px 0px;
 }
 
 .social-card
