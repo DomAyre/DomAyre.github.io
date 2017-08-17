@@ -35,7 +35,7 @@ img
     background: white;
 }
 
-.card > img, .card > video
+.card > img, .card > video, .card > iframe
 {
     margin: 0px !important;
     width: 100%;

@@ -40,6 +40,14 @@ function setLayout(test)
         projectContent.style.marginRight = "40px";
     }
 
+    // Set the video element size
+    var videos = document.getElementsByClassName("youtube");
+    for (i = 0; i < videos.length; i++)
+    {
+        console.log(videos[i]);
+        videos[i].height = videos[i].clientWidth/16*9;
+    }
+
     // Set the gallery elements size
     var galleries = document.getElementsByClassName("gallery");
     for (i = 0; i < galleries.length; i++)
@@ -80,7 +88,10 @@ function switchProjects(project)
     // Close the sidebar
     var obfuscator = document.getElementsByClassName("mdl-layout__obfuscator")[0];
     obfuscator.classList.remove('is-visible');        
-    drawer.classList.remove('is-visible');  
+    drawer.classList.remove('is-visible'); 
+    
+    // Set the URL
+    // window.history.pushState("1", "2", projectName.replace(" ", "-"));
 
     w3.includeHTML(setLayout);
 }
