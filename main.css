@@ -19,9 +19,10 @@ h6
     background: #F0F0F0;
 }
 
-body
+body, p
 {
-    font-family: 'Roboto Slab', serif !important;
+    font-size: 14px;
+    font-family: 'Roboto', serif !important;
 }
 
 img
@@ -178,6 +179,15 @@ img
     transition: height .5s;
     height: 0;
     overflow: hidden;
+  }
+
+  .centered {
+      text-align: center;
+      margin: 0;
+  }
+
+  b {
+      font-weight: bolder
   }
 
 /*Colours*/

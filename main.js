@@ -6,8 +6,10 @@ var projectContent = document.getElementById("project-content");
 var pageTitle = document.getElementById("page-title");
 var icons = document.getElementsByClassName("material-icons");
 var inputs = document.getElementsByClassName("mdl-textfield__input");
+var themed = document.getElementsByClassName("themed");
 var drawer = document.getElementsByClassName("mdl-layout__drawer")[0];
 var projectTypes = document.getElementsByClassName("project-type");
+var projectColour;
 var activeProject;
 var galleryRatio = 4/3;
 
@@ -44,7 +46,6 @@ function setLayout(test)
     var videos = document.getElementsByClassName("youtube");
     for (i = 0; i < videos.length; i++)
     {
-        console.log(videos[i]);
         videos[i].height = videos[i].clientWidth/16*9;
     }
 
@@ -59,13 +60,16 @@ function setLayout(test)
         var index = Math.round(galleries[i].children[0].scrollLeft/galleries[i].clientWidth);
         galleries[i].children[0].scrollLeft = galleries[i].clientWidth * index;
     }
+
+    var themed = document.getElementsByClassName("themed"); 
+    for (var i = 0; i < themed.length; i++) { themed[i].style.color = projectColour };
 }
 
 function switchProjects(project)
 {
     // Get the project details
     var projectName = project.srcElement.innerHTML; 
-    var projectColour = getComputedStyle(project.srcElement).backgroundColor;
+    projectColour = getComputedStyle(project.srcElement).backgroundColor;
 
     // If user clicks my name, go to about page
     if (projectName == "Dominic Ayre") projectName = "About me";
@@ -85,6 +89,7 @@ function switchProjects(project)
     for (var i = 0; i < icons.length; i++) { icons[i].style.color = projectColour };
     for (var i = 0; i < inputs.length; i++) { inputs[i].style.color = projectColour };
 
+    
     // Close the sidebar
     var obfuscator = document.getElementsByClassName("mdl-layout__obfuscator")[0];
     obfuscator.classList.remove('is-visible');        
@@ -92,7 +97,7 @@ function switchProjects(project)
     
     // Set the URL
     // window.history.pushState("1", "2", projectName.replace(" ", "-"));
-
+    
     w3.includeHTML(setLayout);
 }
 
