@@ -129,10 +129,16 @@ img
     display: inline-block;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position-x: center;
+    background-position: center;
     width: 60%;
     height: 100%;
     margin: 0px 20%;
+}
+
+.gallery-letterbox
+{
+    background-size: contain;
+    background-color: black;
 }
 
 .gallery-back, .gallery-forward
