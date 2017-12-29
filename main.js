@@ -25,15 +25,10 @@ function load()
 }
 
 function setLayout(test)
-{    
-    if (document.documentElement.clientWidth < 800)
-    {        
-        projectContent.style.marginLeft = "16px";
-        projectContent.style.marginRight = "16px";
-    }
-    else if (document.documentElement.clientWidth < 1024)
+{
+    if (document.documentElement.clientWidth < 1024)
     {
-        projectContent.style.marginLeft = "72px";
+        projectContent.style.marginLeft = "16px";
         projectContent.style.marginRight = "16px";
     }
     else
