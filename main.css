@@ -21,7 +21,7 @@ h6
 
 body, p
 {
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Roboto', serif !important;
 }
 
@@ -36,10 +36,15 @@ img
     background: white;
 }
 
-.card > img, .card > video, .card > iframe
+.card > img, .card video, .card > iframe
 {
     margin: 0px !important;
     width: 100%;
+}
+
+.card > a {
+    margin: 0px !important;
+
 }
 
 .card > *
@@ -47,7 +52,7 @@ img
     margin: 18px !important;
 }
 
-.spacer 
+.spacer
 {
     height: 20px;
 }
@@ -91,13 +96,13 @@ img
 }
 
 #about-me:hover, .project-type:hover, .project-type.active
-{   
+{
     background-color: #323232 !important;
 }
 
-.project-type
+text, span
 {
-    font-family: Roboto;
+    font-family: Roboto !important;
 }
 
 .gallery
@@ -206,9 +211,9 @@ img
 
 .yellow:hover, .yellow.active { background-color: #DCB400 !important; }
 
-.teal:hover, .teal.active { background-color: #009688 !important; } 
+.teal:hover, .teal.active { background-color: #009688 !important; }
 
-.grey:hover, .grey.active { background-color: #607D8B !important; }   
+.grey:hover, .grey.active { background-color: #607D8B !important; }
 
 .blue:hover, .blue.active { background-color: #2196F3 !important; }
 

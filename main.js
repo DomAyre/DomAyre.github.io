@@ -4,27 +4,56 @@ w3.includeHTML();
 var projects = document.getElementsByClassName("project-link");
 var projectContent = document.getElementById("project-content");
 var pageTitle = document.getElementById("page-title");
-var icons = document.getElementsByClassName("material-icons");
-var inputs = document.getElementsByClassName("mdl-textfield__input");
-var themed = document.getElementsByClassName("themed");
 var drawer = document.getElementsByClassName("mdl-layout__drawer")[0];
 var projectTypes = document.getElementsByClassName("project-type");
-var projectColour;
 var activeProject;
 var galleryRatio = 4/3;
 
 // Event listeners
-window.addEventListener('load', load);
+window.addEventListener('DOMContentLoaded', load);
 window.addEventListener('resize', setLayout);
-for (var i = 0; i < projects.length; i++) { projects[i].addEventListener('click', switchProjects); }
+window.addEventListener('popstate', onPopState);
+for (var i = 0; i < projects.length; i++) { projects[i].addEventListener('click', onProjectClick); }
 for (var i = 0; i < projectTypes.length; i++) { projectTypes[i].addEventListener('click', toggleRegion); }
+
+function getProjectUrlFromPath() {
+    let path = new URL(window.location.href).pathname.split("/")[1];
+    return path;
+}
+
+function onPopState() {
+    switchProjects(getProjectUrlFromPath());
+}
 
 function load()
 {
+    const project = getProjectUrlFromPath();
+
     setLayout();
+
+    if (project !== "") {
+        switchProjects(project);
+    } else {
+        switchProjects("about-me.html")
+    }
+
+    setTheme();
 }
 
-function setLayout(test)
+function setTheme() {
+
+    const projectColour = getComputedStyle(activeProject).backgroundColor
+
+    const themed = document.getElementsByClassName("themed");
+    const icons = document.getElementsByClassName("material-icons");
+    const inputs = document.getElementsByClassName("mdl-textfield__input");
+
+    for (var i = 0; i < themed.length; i++) { icons[i].style.color = projectColour };
+    for (var i = 0; i < icons.length; i++) { icons[i].style.color = projectColour };
+    for (var i = 0; i < inputs.length; i++) { inputs[i].style.color = projectColour };
+}
+
+function setLayout()
 {
     if (document.documentElement.clientWidth < 1024)
     {
@@ -55,65 +84,68 @@ function setLayout(test)
         var index = Math.round(galleries[i].children[0].scrollLeft/galleries[i].clientWidth);
         galleries[i].children[0].scrollLeft = galleries[i].clientWidth * index;
     }
-
-    var themed = document.getElementsByClassName("themed"); 
-    for (var i = 0; i < themed.length; i++) { themed[i].style.color = projectColour };
 }
 
-function switchProjects(project)
-{
-    // Get the project details
-    var projectName = project.srcElement.innerHTML; 
-    projectColour = getComputedStyle(project.srcElement).backgroundColor;
+function onProjectClick(clickEvent) {
 
-    // If user clicks my name, go to about page
-    if (projectName == "Dominic Ayre") projectName = "About me";
-   
-    // Set this as the active project
-    if (activeProject) activeProject.classList.remove("active");
-    project.srcElement.classList.add("active");
-    activeProject = project.srcElement;
+    const projectUrl = clickEvent.srcElement.id + ".html";
+    switchProjects(projectUrl);
+    setTheme();
+
+    // Set the URL
+    window.history.pushState("1", "2", projectUrl);
+}
+
+/**
+ * @param {string} projectId The id of the project (lower-snake case)
+ */
+function switchProjects(projectUrl) {
+
+    const projectId = projectUrl.replace(".html", "");
+    const projectElement = document.getElementById(projectId);
+    let projectName = projectElement.innerText;
+    projectName = projectName === "Dominic Ayre" ? "About Me" : projectName;
 
     // Change the title
     pageTitle.innerHTML = projectName;
 
+    // Set this as the active project in the sidebar
+    if (activeProject) activeProject.classList.remove("active");
+    projectElement.classList.add("active");
+    activeProject = projectElement;
+
     // Switch out page content (ASSUMING CONTENT WILL EXIST)
-    projectContent.setAttribute("w3-include-html", "pages/" + projectName + "/" + projectName + ".html");
+    projectContent.setAttribute("w3-include-html", "pages/" + projectName + "/" + projectUrl);
 
-    // Change colour theme
-    for (var i = 0; i < icons.length; i++) { icons[i].style.color = projectColour };
-    for (var i = 0; i < inputs.length; i++) { inputs[i].style.color = projectColour };
 
-    
     // Close the sidebar
     var obfuscator = document.getElementsByClassName("mdl-layout__obfuscator")[0];
-    obfuscator.classList.remove('is-visible');        
-    drawer.classList.remove('is-visible'); 
-    
-    // Set the URL
-    // window.history.pushState("1", "2", projectName.replace(" ", "-"));
-    
+    if (obfuscator != null) {
+        obfuscator.classList.remove('is-visible');
+        drawer.classList.remove('is-visible');
+    }
+
     w3.includeHTML(setLayout);
 }
 
 function toggleRegion(projectType)
-{    
+{
     // Get the project details
     var element = projectType.srcElement;
     if (element.outerHTML.startsWith("<b")) element = projectType.srcElement.parentElement;
     var type = element.innerText;
-    
+
     // Get the elements
     var region = document.getElementById(type + " PROJECTS");
     var wrapper = document.getElementById(type + " WRAPPER");
-    
+
     // Change the height
-    if (region.clientHeight)  
+    if (region.clientHeight)
     {
         region.style.height = 0;
         element.classList.remove("active");
     }
-    else 
+    else
     {
         region.style.height = wrapper.clientHeight + "px";
         element.classList.add("active");
