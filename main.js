@@ -104,7 +104,7 @@ function switchProjects(projectUrl) {
     const projectId = projectUrl.replace(".html", "");
     const projectElement = document.getElementById(projectId);
     let projectName = projectElement.innerText;
-    projectName = projectName === "Dominic Ayre" ? "About Me" : projectName;
+    projectName = projectName === "Dominic Ayre" ? "About me" : projectName;
 
     // Change the title
     pageTitle.innerHTML = projectName;
